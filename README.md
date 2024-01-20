@@ -32,13 +32,32 @@ Replace <folder_path> with the path to your folder containing the images.
 
 ### Example
 ```bash
-python update_image_dates.py /path/to/images -d "2024-01-20 12:00:00"
+python update_image_dates.py /path/to/images -d "2024-01-20 12:00:00" -a
 ```
-This exemple shows how to set a default date if none is specified.
+This exemple shows how to set a default date to ALL files.
 The default date should be in the format "YYYY-MM-DD HH:MM:SS".
 Don't forget the "quotes".
 
 It is recommended to back up your images before running this script, as it modifies file properties or incase something goes wrong.
+
+## Parameters
+
+### `folder`
+- **Description**: Path to the folder containing files.
+- **Required**: Yes
+- **Usage**: `update_image_filedate.py <folder>`
+
+### `-d`, `--default_date`
+- **Description**: Default date in YYYY-MM-DD HH:MM:SS format. Applied to files if no EXIF date is found, or to all files when `-a`/`--all` is used.
+- **Required**: No
+- **Format**: `YYYY-MM-DD HH:MM:SS`
+- **Usage**: `update_image_filedate.py <folder> -d "YYYY-MM-DD HH:MM:SS"`
+
+### `-a`, `--all`
+- **Description**: Apply the default date to all files within the specified folder, not just image files. Useful for setting a uniform date for a mix of file types.
+- **Required**: No
+- **Usage**: `update_image_filedate.py <folder> --all`
+
 
 ## License
 Check the LICENSE file
